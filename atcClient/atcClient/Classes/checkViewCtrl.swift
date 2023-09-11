@@ -1,0 +1,49 @@
+//
+//  checkViewCtrl.swift
+//  atcClient
+//
+//  Created by 宋齊鎬 on 2017/12/11.
+//  Copyright © 2017年 宋齊鎬. All rights reserved.
+//
+
+import UIKit
+
+class checkViewCtrl: UIViewController {
+
+    let touchButton: UIButton = {
+        let view = UIButton()
+        view.layer.cornerRadius = 10
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.darkGray.cgColor
+        view.setTitle("チェック終了", for: UIControlState.normal)
+        view.setTitleColor(UIColor.black, for: UIControlState.normal)
+        view.showsTouchWhenHighlighted = true
+        view.addTarget(self, action: #selector(checkViewCtrl.onClickButton(_:)), for: .touchUpInside)
+        return view
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.view.backgroundColor = UIColor.white
+        self.navigationItem.title = "業務終了チェック"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18)]
+        
+        touchButton.frame = CGRect(x: (self.view.frame.size.width-300)/2, y: self.view.frame.size.height-100, width: 300, height: 60)
+        self.view.addSubview(touchButton)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func onClickButton(_ sender: UIButton) {
+        
+    }
+}
