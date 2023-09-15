@@ -47,16 +47,6 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
         let myTap = UITapGestureRecognizer(target: self, action: #selector(startViewCtrl.tapGesture(sender:)))
         self.view.addGestureRecognizer(myTap)
         
-        let soundFilePath : String = Bundle.main.path(forResource: "irasyai", ofType: "mp3")!
-        let fileURL : URL = URL(fileURLWithPath: soundFilePath)
-        
-        do{
-            audioPlayer = try AVAudioPlayer(contentsOf: fileURL)
-            audioPlayer.delegate = self
-        }
-        catch{
-        }
-        
         timeTitle.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.view.addSubview(timeTitle)
         
@@ -74,17 +64,39 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
                                         print("data = \(data)")
                                         
                                         DispatchQueue.main.async { // Correct
-                                            self.dispCustomer()
+                                            self.dispCustomer(data)
                                         }
                                     }
         )
     }
     
-    func dispCustomer() {
+    func dispCustomer(_ message: String) {
         isWait = false
-        timeTitle.text = "お客様が\rいらっしゃいました。\r迎えて下さい"
-        audioPlayer.play()
+        var messageText = ""
+        var soundFileName = ""
+
+        switch message {
+        case "送信1":
+            messageText = "お客様が\rいらっしゃいました。\r迎えて下さい"
+            soundFileName = "irasyai"
+        default:
+            messageText = "配達が\rいらっしゃいました。\r迎えて下さい"
+            soundFileName = "example"
+        }
+
+        timeTitle.text = messageText
+        
+        if let soundFilePath = Bundle.main.path(forResource: soundFileName, ofType: "mp3") {
+            let fileURL = URL(fileURLWithPath: soundFilePath)
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: fileURL)
+                audioPlayer.delegate = self
+                audioPlayer.play()
+            } catch {
+            }
+        }
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

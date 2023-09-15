@@ -49,16 +49,26 @@ class waitMessageView: UIView, AVAudioPlayerDelegate {
     var anyNum = 0
     let anyMsg:[Any] = ["","▶︎","▶︎▶︎","▶︎▶︎▶︎","▶︎▶︎▶︎▶︎","▶︎▶︎▶︎▶︎▶︎"]
     
+    var buttonType: String = "送信1"
+    
     override func draw(_ rect: CGRect) {
         
-        let soundFilePath : String = Bundle.main.path(forResource: "irasyai", ofType: "mp3")!
-        let fileURL : URL = URL(fileURLWithPath: soundFilePath)
-        
-        do{
-            audioPlayer = try AVAudioPlayer(contentsOf: fileURL)
-            audioPlayer.delegate = self
+        var soundFileName = ""
+
+        switch buttonType {
+        case "送信1":
+            soundFileName = "irasyai"
+        default:
+            soundFileName = "example"
         }
-        catch{
+        
+        if let soundFilePath = Bundle.main.path(forResource: soundFileName, ofType: "mp3") {
+            let fileURL = URL(fileURLWithPath: soundFilePath)
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: fileURL)
+                audioPlayer.delegate = self
+            } catch {
+            }
         }
 
         womanImg.frame = CGRect(x: 70, y: 110, width: 482, height: 500)

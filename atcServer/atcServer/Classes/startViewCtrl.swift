@@ -232,12 +232,22 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate, waitMessageDelegat
         
 //        try! startRecording()
         audioPlayer.play()
-        p2pConnectivity.manager.send(message: "送信")
+        
+        var buttonType = ""
+        
+        if sender == touchButton {
+            buttonType = "送信1"
+            
+        } else {
+            buttonType = "送信2"
+        }
+        p2pConnectivity.manager.send(message: buttonType)
 
         let watView = waitMessageView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         watView.backgroundColor = UIColor.white
         watView.delegate = self
         watView.tag = 1000
+        watView.buttonType = buttonType
         self.view.addSubview(watView)
     }
     
