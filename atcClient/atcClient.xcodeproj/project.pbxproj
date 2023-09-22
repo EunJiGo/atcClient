@@ -19,13 +19,13 @@
 		CD470A501FDBE337009F3A10 /* startViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD470A4E1FDBE336009F3A10 /* startViewCtrl.swift */; };
 		CD470A511FDBE337009F3A10 /* p2pConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD470A4F1FDBE336009F3A10 /* p2pConnectivity.swift */; };
 		CD470A531FDBEAAF009F3A10 /* irasyai.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CD470A521FDBEAAE009F3A10 /* irasyai.mp3 */; };
-		E00BB5D72AB3FC1B00928E3A /* example.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E00BB5D62AB3FC1B00928E3A /* example.mp3 */; };
 		E00BB5DC2AB92F3500928E3A /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00BB5DB2AB92F3500928E3A /* DataBase.swift */; };
 		E00BB5DE2AB93C4600928E3A /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00BB5DD2AB93C4600928E3A /* DatabaseManager.swift */; };
 		E00BB5E12ABBD39D00928E3A /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E00BB5E02ABBD39D00928E3A /* SQLite */; };
 		E00BB61D2ABBE6CD00928E3A /* visitInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00BB61C2ABBE6CD00928E3A /* visitInfo.swift */; };
 		E00BB6212ABBE96E00928E3A /* VisitRecordViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00BB6202ABBE96E00928E3A /* VisitRecordViewCtrl.swift */; };
 		E00BB62D2ABC211E00928E3A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00BB62C2ABC211E00928E3A /* CustomTableViewCell.swift */; };
+		E00BB62F2ABD28D800928E3A /* postMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E00BB62E2ABD28D800928E3A /* postMusic.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,12 +64,12 @@
 		CD470A4E1FDBE336009F3A10 /* startViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = startViewCtrl.swift; sourceTree = "<group>"; };
 		CD470A4F1FDBE336009F3A10 /* p2pConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = p2pConnectivity.swift; sourceTree = "<group>"; };
 		CD470A521FDBEAAE009F3A10 /* irasyai.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = irasyai.mp3; sourceTree = "<group>"; };
-		E00BB5D62AB3FC1B00928E3A /* example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = example.mp3; sourceTree = "<group>"; };
 		E00BB5DB2AB92F3500928E3A /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		E00BB5DD2AB93C4600928E3A /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		E00BB61C2ABBE6CD00928E3A /* visitInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visitInfo.swift; sourceTree = "<group>"; };
 		E00BB6202ABBE96E00928E3A /* VisitRecordViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitRecordViewCtrl.swift; sourceTree = "<group>"; };
 		E00BB62C2ABC211E00928E3A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		E00BB62E2ABD28D800928E3A /* postMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = postMusic.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,8 +157,8 @@
 		CD470A4C1FDBE30F009F3A10 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				E00BB5D62AB3FC1B00928E3A /* example.mp3 */,
 				CD470A521FDBEAAE009F3A10 /* irasyai.mp3 */,
+				E00BB62E2ABD28D800928E3A /* postMusic.mp3 */,
 				CD1D689B1FDEAE7200137D1E /* setup.png */,
 			);
 			path = Resource;
@@ -315,8 +315,8 @@
 			files = (
 				CD1D689C1FDEAE7200137D1E /* setup.png in Resources */,
 				CD470A291FDBE300009F3A10 /* LaunchScreen.storyboard in Resources */,
+				E00BB62F2ABD28D800928E3A /* postMusic.mp3 in Resources */,
 				CD470A261FDBE300009F3A10 /* Assets.xcassets in Resources */,
-				E00BB5D72AB3FC1B00928E3A /* example.mp3 in Resources */,
 				CD470A241FDBE300009F3A10 /* Main.storyboard in Resources */,
 				CD470A531FDBEAAF009F3A10 /* irasyai.mp3 in Resources */,
 			);

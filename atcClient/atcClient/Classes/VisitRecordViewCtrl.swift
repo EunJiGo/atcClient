@@ -8,20 +8,23 @@
 
 import UIKit
 
-
 /// 訪問記録画面
 class VisitRecordViewCtrl: UIViewController {
+    
+    // 訪問記録情報を表示するテーブルビュー
     let visitRecordsTable: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
+    // 訪問記録情報のリスト
     private var visitRecordsList: [VisitInfo] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // DBで訪問記録情報を取得
         visitRecordsList = DataBase.selectAll()
         
         visitRecordsTable.register(CustomTableViewCell.self, forCellReuseIdentifier: "customCell")
@@ -47,13 +50,14 @@ extension VisitRecordViewCtrl: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            // 最初のセクションには、列の名前を表示(1 つの行のみが含まれる）
-            return 1
-        } else {
-            // 2番目のセクションには、実際のデータ行数だけ含まれる
-            return visitRecordsList.count
-        }
+        switch section {
+            case 0:
+                // 最初のセクションには、列の名前を表示(1 つの行のみが含まれる）
+                return 1
+            default:
+                // 2番目のセクションには、実際のデータ行数だけ含まれる
+                return visitRecordsList.count
+            }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

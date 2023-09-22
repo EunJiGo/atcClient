@@ -12,33 +12,34 @@ import SQLite3
 /// データベースへの接続とクエリを実行
 class DatabaseManager {
     static let shared = DatabaseManager()
-    private var db: OpaquePointer? = nil
+    var db: OpaquePointer? = nil
     
     fileprivate init() {
-        // 데이터베이스 파일 경로 설정
+        /// データベースファイル経路の設定
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let dbPath = documentsDirectory.appendingPathComponent("mydb.sqlite3").path
-
-        if sqlite3_open(dbPath, &db) != SQLITE_OK {
-            print("Error opening database")
+        
+        guard sqlite3_open(dbPath, &db) == SQLITE_OK else {
+            return
         }
+        print(documentsDirectory)
     }
     
+    /// データベース接続を閉じる
     func closeDatabase() {
-        if sqlite3_close(db) != SQLITE_OK {
-            print("Error closing database")
+        guard sqlite3_close(db) == SQLITE_OK else {
+            return
         }
     }
     
+    /// データベース操作
     func execute(query: String) -> Bool {
         var statement: OpaquePointer? = nil
-        if sqlite3_prepare_v2(db, query, -1, &statement, nil) != SQLITE_OK {
-            print("Error preparing query: \(query)")
+        guard sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK else {
             return false
         }
         
-        if sqlite3_step(statement) != SQLITE_DONE {
-            print("Error executing query: \(query)")
+        guard sqlite3_step(statement) == SQLITE_DONE else {
             sqlite3_finalize(statement)
             return false
         }
@@ -47,14 +48,12 @@ class DatabaseManager {
         return true
     }
     
+    /// データベースからデータを検索し、結果を返
     func executeQuery(query: String) -> OpaquePointer? {
         var statement: OpaquePointer? = nil
-        if sqlite3_prepare_v2(db, query, -1, &statement, nil) != SQLITE_OK {
-            print("Error preparing query: \(query)")
+        guard sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK else {
             return nil
         }
-
         return statement
     }
-
 }

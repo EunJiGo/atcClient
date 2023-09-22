@@ -237,14 +237,14 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate, waitMessageDelegat
         let buttonPressTime = Date()
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // 원하는 형식으로 설정
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let buttonClickTime = dateFormatter.string(from: buttonPressTime)
 
         if sender == touchButton {
-            buttonType = "訪問"
+            buttonType = "visit"
             
         } else {
-            buttonType = "郵便"
+            buttonType = "post"
         }
         p2pConnectivity.manager.send(message: buttonType, clickTime: buttonClickTime)
 

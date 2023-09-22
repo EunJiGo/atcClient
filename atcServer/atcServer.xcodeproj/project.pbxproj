@@ -21,7 +21,7 @@
 		CD470A111FDBE29A009F3A10 /* irasyai.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CD470A0F1FDBE29A009F3A10 /* irasyai.mp3 */; };
 		CDB5BF331FDE1B71002A327C /* scrback.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB5BF321FDE1B71002A327C /* scrback.png */; };
 		CDEAD4E81FDEA3A1004BEEE2 /* woman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDEAD4E71FDEA3A1004BEEE2 /* woman.jpg */; };
-		E00BB5D92AB418D700928E3A /* example.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E00BB5D82AB418D700928E3A /* example.mp3 */; };
+		E00BB6312ABD290B00928E3A /* postMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E00BB6302ABD290B00928E3A /* postMusic.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +62,7 @@
 		CD470A0F1FDBE29A009F3A10 /* irasyai.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = irasyai.mp3; sourceTree = "<group>"; };
 		CDB5BF321FDE1B71002A327C /* scrback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scrback.png; sourceTree = "<group>"; };
 		CDEAD4E71FDEA3A1004BEEE2 /* woman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woman.jpg; sourceTree = "<group>"; };
-		E00BB5D82AB418D700928E3A /* example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = example.mp3; sourceTree = "<group>"; };
+		E00BB6302ABD290B00928E3A /* postMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = postMusic.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,8 +156,8 @@
 		CD470A071FDBE264009F3A10 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				E00BB5D82AB418D700928E3A /* example.mp3 */,
 				CD470A0E1FDBE29A009F3A10 /* click.mp3 */,
+				E00BB6302ABD290B00928E3A /* postMusic.mp3 */,
 				CD470A0F1FDBE29A009F3A10 /* irasyai.mp3 */,
 				CDB5BF321FDE1B71002A327C /* scrback.png */,
 				CDEAD4E71FDEA3A1004BEEE2 /* woman.jpg */,
@@ -274,10 +274,10 @@
 			files = (
 				CD4709E31FDBE22C009F3A10 /* LaunchScreen.storyboard in Resources */,
 				CD470A111FDBE29A009F3A10 /* irasyai.mp3 in Resources */,
+				E00BB6312ABD290B00928E3A /* postMusic.mp3 in Resources */,
 				CD470A101FDBE29A009F3A10 /* click.mp3 in Resources */,
 				CD4709E01FDBE22C009F3A10 /* Assets.xcassets in Resources */,
 				CD4709DE1FDBE22C009F3A10 /* Main.storyboard in Resources */,
-				E00BB5D92AB418D700928E3A /* example.mp3 in Resources */,
 				CDEAD4E81FDEA3A1004BEEE2 /* woman.jpg in Resources */,
 				CDB5BF331FDE1B71002A327C /* scrback.png in Resources */,
 			);

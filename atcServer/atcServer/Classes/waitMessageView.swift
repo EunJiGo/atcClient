@@ -49,17 +49,17 @@ class waitMessageView: UIView, AVAudioPlayerDelegate {
     var anyNum = 0
     let anyMsg:[Any] = ["","▶︎","▶︎▶︎","▶︎▶︎▶︎","▶︎▶︎▶︎▶︎","▶︎▶︎▶︎▶︎▶︎"]
     
-    var buttonType: String = "訪問"
+    var buttonType: String = "visit"
     
     override func draw(_ rect: CGRect) {
         
         var soundFileName = ""
 
         switch buttonType {
-        case "訪問":
+        case "visit":
             soundFileName = "irasyai"
         default:
-            soundFileName = "example"
+            soundFileName = "postMusic"
         }
         
         if let soundFilePath = Bundle.main.path(forResource: soundFileName, ofType: "mp3") {

@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 
+@available(iOS 13.0, *)
 class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
     
     let timeTitle: UILabel = {
@@ -79,7 +80,7 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
         
         let buttonInfo = message.components(separatedBy: ",")
         
-        guard buttonInfo.count == 2 else {
+        guard buttonInfo.count >= 2 else {
             return
         }
         
@@ -87,15 +88,15 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
         let buttonClickTime = buttonInfo[1]
         
         switch buttonType {
-        case "訪問":
+        case "visit":
             messageText = "お客様が\rいらっしゃいました。\r迎えて下さい"
             soundFileName = "irasyai"
         default:
             messageText = "配達が\rいらっしゃいました。\r迎えて下さい"
-            soundFileName = "example"
+            soundFileName = "postMusic"
         }
         
-        guard DataBase.insertMessage(timeInfo: buttonClickTime, messageText: messageText) else {
+        guard DataBase.insertMessage(timeInfoName: buttonClickTime, messageTextName: messageText) else {
             return
         }
         
@@ -136,7 +137,6 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
     }
     
     @objc func onClickButton(_ sender: UIButton) {
-        
         self.navigationController?.pushViewController(checkViewCtrl(), animated: true)
     }
 }

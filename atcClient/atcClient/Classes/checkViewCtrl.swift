@@ -59,11 +59,19 @@ class checkViewCtrl: UIViewController {
     }
     
     @objc func onClickButton(_ sender: UIButton) {
-        if sender == recordButton {
-            let destinationVC = VisitRecordViewCtrl()
-            let navigationController = UINavigationController(rootViewController: destinationVC)
-        
-            self.navigationController?.pushViewController(navigationController, animated: true)
+        guard sender == recordButton else {
+            return
         }
+        let destinationVC = VisitRecordViewCtrl()
+        self.navigationController?.pushViewController(destinationVC, animated: true)
+        
+//        // touchButtonを押したら、DBにinsert
+//        if sender == recordButton{
+//            let destinationVC = VisitRecordViewCtrl()
+//            self.navigationController?.pushViewController(destinationVC, animated: true)
+//        } else{
+//            DataBase.insertMessage(timeInfoName: "2023-09-17 11:00:00", messageTextName: "post")
+//        }
+        
     }
 }
