@@ -234,14 +234,19 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate, waitMessageDelegat
         audioPlayer.play()
         
         var buttonType = ""
+        let buttonPressTime = Date()
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // 원하는 형식으로 설정
+        let buttonClickTime = dateFormatter.string(from: buttonPressTime)
+
         if sender == touchButton {
-            buttonType = "送信1"
+            buttonType = "訪問"
             
         } else {
-            buttonType = "送信2"
+            buttonType = "郵便"
         }
-        p2pConnectivity.manager.send(message: buttonType)
+        p2pConnectivity.manager.send(message: buttonType, clickTime: buttonClickTime)
 
         let watView = waitMessageView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         watView.backgroundColor = UIColor.white

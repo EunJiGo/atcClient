@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
-
+    
     let timeTitle: UILabel = {
         let view = UILabel()
         view.textColor = UIColor.white
@@ -41,7 +41,9 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        DataBase.createTable()
+        
         self.view.backgroundColor = UIColor.clear
         
         let myTap = UITapGestureRecognizer(target: self, action: #selector(startViewCtrl.tapGesture(sender:)))
@@ -59,14 +61,14 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
         p2pConnectivity.manager.start(serviceType: "MIKE-SIMPLE-P2P",
                                       displayName: UIDevice.current.name,
                                       stateChangeHandler: { state in
-                                        print("state = \(state)")
-                                    }, recieveHandler: { data in
-                                        print("data = \(data)")
-                                        
-                                        DispatchQueue.main.async { // Correct
-                                            self.dispCustomer(data)
-                                        }
-                                    }
+            print("state = \(state)")
+        }, recieveHandler: { data in
+            print("data = \(data)")
+            
+            DispatchQueue.main.async { // Correct
+                self.dispCustomer(data)
+            }
+        }
         )
     }
     
@@ -74,16 +76,29 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
         isWait = false
         var messageText = ""
         var soundFileName = ""
-
-        switch message {
-        case "送信1":
+        
+        let buttonInfo = message.components(separatedBy: ",")
+        
+        guard buttonInfo.count == 2 else {
+            return
+        }
+        
+        let buttonType = buttonInfo[0]
+        let buttonClickTime = buttonInfo[1]
+        
+        switch buttonType {
+        case "訪問":
             messageText = "お客様が\rいらっしゃいました。\r迎えて下さい"
             soundFileName = "irasyai"
         default:
             messageText = "配達が\rいらっしゃいました。\r迎えて下さい"
             soundFileName = "example"
         }
-
+        
+        guard DataBase.insertMessage(timeInfo: buttonClickTime, messageText: messageText) else {
+            return
+        }
+        
         timeTitle.text = messageText
         
         if let soundFilePath = Bundle.main.path(forResource: soundFileName, ofType: "mp3") {
@@ -96,7 +111,6 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
             }
         }
     }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

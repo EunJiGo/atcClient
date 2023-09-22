@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,12 @@
 		CD470A511FDBE337009F3A10 /* p2pConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD470A4F1FDBE336009F3A10 /* p2pConnectivity.swift */; };
 		CD470A531FDBEAAF009F3A10 /* irasyai.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CD470A521FDBEAAE009F3A10 /* irasyai.mp3 */; };
 		E00BB5D72AB3FC1B00928E3A /* example.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E00BB5D62AB3FC1B00928E3A /* example.mp3 */; };
+		E00BB5DC2AB92F3500928E3A /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00BB5DB2AB92F3500928E3A /* DataBase.swift */; };
+		E00BB5DE2AB93C4600928E3A /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00BB5DD2AB93C4600928E3A /* DatabaseManager.swift */; };
+		E00BB5E12ABBD39D00928E3A /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E00BB5E02ABBD39D00928E3A /* SQLite */; };
+		E00BB61D2ABBE6CD00928E3A /* visitInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00BB61C2ABBE6CD00928E3A /* visitInfo.swift */; };
+		E00BB6212ABBE96E00928E3A /* VisitRecordViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00BB6202ABBE96E00928E3A /* VisitRecordViewCtrl.swift */; };
+		E00BB62D2ABC211E00928E3A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00BB62C2ABC211E00928E3A /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +65,11 @@
 		CD470A4F1FDBE336009F3A10 /* p2pConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = p2pConnectivity.swift; sourceTree = "<group>"; };
 		CD470A521FDBEAAE009F3A10 /* irasyai.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = irasyai.mp3; sourceTree = "<group>"; };
 		E00BB5D62AB3FC1B00928E3A /* example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = example.mp3; sourceTree = "<group>"; };
+		E00BB5DB2AB92F3500928E3A /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		E00BB5DD2AB93C4600928E3A /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		E00BB61C2ABBE6CD00928E3A /* visitInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visitInfo.swift; sourceTree = "<group>"; };
+		E00BB6202ABBE96E00928E3A /* VisitRecordViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitRecordViewCtrl.swift; sourceTree = "<group>"; };
+		E00BB62C2ABC211E00928E3A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E00BB5E12ABBD39D00928E3A /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +121,9 @@
 		CD470A1D1FDBE300009F3A10 /* atcClient */ = {
 			isa = PBXGroup;
 			children = (
+				E00BB62B2ABC20D000928E3A /* TableViewCell */,
+				E00BB62A2ABC20BA00928E3A /* DB */,
+				E00BB5DA2AB92F1800928E3A /* Model */,
 				CD470A1E1FDBE300009F3A10 /* AppDelegate.swift */,
 				CD470A4D1FDBE31D009F3A10 /* Classes */,
 				CD470A4C1FDBE30F009F3A10 /* Resource */,
@@ -155,8 +170,34 @@
 				CD470A4E1FDBE336009F3A10 /* startViewCtrl.swift */,
 				CD1D689D1FDEB05800137D1E /* checkViewCtrl.swift */,
 				CD470A4F1FDBE336009F3A10 /* p2pConnectivity.swift */,
+				E00BB6202ABBE96E00928E3A /* VisitRecordViewCtrl.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		E00BB5DA2AB92F1800928E3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E00BB61C2ABBE6CD00928E3A /* visitInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E00BB62A2ABC20BA00928E3A /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				E00BB5DD2AB93C4600928E3A /* DatabaseManager.swift */,
+				E00BB5DB2AB92F3500928E3A /* DataBase.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		E00BB62B2ABC20D000928E3A /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E00BB62C2ABC211E00928E3A /* CustomTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +216,9 @@
 			dependencies = (
 			);
 			name = atcClient;
+			packageProductDependencies = (
+				E00BB5E02ABBD39D00928E3A /* SQLite */,
+			);
 			productName = atcClient;
 			productReference = CD470A1B1FDBE300009F3A10 /* atcClient.app */;
 			productType = "com.apple.product-type.application";
@@ -250,6 +294,9 @@
 				Base,
 			);
 			mainGroup = CD470A121FDBE300009F3A10;
+			packageReferences = (
+				E00BB5DF2ABBD39D00928E3A /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+			);
 			productRefGroup = CD470A1C1FDBE300009F3A10 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -299,8 +346,13 @@
 				CD470A211FDBE300009F3A10 /* ViewController.swift in Sources */,
 				CD470A511FDBE337009F3A10 /* p2pConnectivity.swift in Sources */,
 				CD470A1F1FDBE300009F3A10 /* AppDelegate.swift in Sources */,
+				E00BB6212ABBE96E00928E3A /* VisitRecordViewCtrl.swift in Sources */,
+				E00BB5DE2AB93C4600928E3A /* DatabaseManager.swift in Sources */,
 				CD470A501FDBE337009F3A10 /* startViewCtrl.swift in Sources */,
+				E00BB62D2ABC211E00928E3A /* CustomTableViewCell.swift in Sources */,
+				E00BB61D2ABBE6CD00928E3A /* visitInfo.swift in Sources */,
 				CD1D689E1FDEB05800137D1E /* checkViewCtrl.swift in Sources */,
+				E00BB5DC2AB92F3500928E3A /* DataBase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +509,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -472,7 +525,10 @@
 				DEVELOPMENT_TEAM = BGZ635VZK9;
 				INFOPLIST_FILE = atcClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.jp.gngs.atcClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -491,7 +547,10 @@
 				DEVELOPMENT_TEAM = BGZ635VZK9;
 				INFOPLIST_FILE = atcClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.jp.gngs.atcClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -507,7 +566,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = atcClientTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.jp.gngs.atcClientTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -523,7 +586,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = atcClientTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.jp.gngs.atcClientTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -538,7 +605,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = atcClientUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.jp.gngs.atcClientUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -553,7 +624,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = atcClientUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.jp.gngs.atcClientUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -602,6 +677,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E00BB5DF2ABBD39D00928E3A /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.14.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E00BB5E02ABBD39D00928E3A /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E00BB5DF2ABBD39D00928E3A /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CD470A131FDBE300009F3A10 /* Project object */;
 }

@@ -9,7 +9,19 @@
 import UIKit
 
 class checkViewCtrl: UIViewController {
-
+    
+    let recordButton: UIButton = {
+        let view = UIButton()
+        view.layer.cornerRadius = 10
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.darkGray.cgColor
+        view.setTitle("訪問記録", for: UIControlState.normal)
+        view.setTitleColor(UIColor.black, for: UIControlState.normal)
+        view.showsTouchWhenHighlighted = true
+        view.addTarget(self, action: #selector(checkViewCtrl.onClickButton(_:)), for: .touchUpInside)
+        return view
+    }()
+    
     let touchButton: UIButton = {
         let view = UIButton()
         view.layer.cornerRadius = 10
@@ -24,10 +36,13 @@ class checkViewCtrl: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = UIColor.white
         self.navigationItem.title = "業務終了チェック"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18)]
+        
+        recordButton.frame = CGRect(x: (self.view.frame.size.width-300)/2, y: self.view.frame.size.height-180, width: 300, height: 60)
+        self.view.addSubview(recordButton)
         
         touchButton.frame = CGRect(x: (self.view.frame.size.width-300)/2, y: self.view.frame.size.height-100, width: 300, height: 60)
         self.view.addSubview(touchButton)
@@ -37,13 +52,18 @@ class checkViewCtrl: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @objc func onClickButton(_ sender: UIButton) {
+        if sender == recordButton {
+            let destinationVC = VisitRecordViewCtrl()
+            let navigationController = UINavigationController(rootViewController: destinationVC)
         
+            self.navigationController?.pushViewController(navigationController, animated: true)
+        }
     }
 }
