@@ -59,11 +59,15 @@ class checkViewCtrl: UIViewController {
     }
     
     @objc func onClickButton(_ sender: UIButton) {
-        guard sender == recordButton else {
+        guard
+            sender == recordButton,
+            let naviCtrl = self.navigationController
+        else {
             return
         }
+
         let destinationVC = VisitRecordViewCtrl()
-        self.navigationController?.pushViewController(destinationVC, animated: true)
+        naviCtrl.pushViewController(destinationVC, animated: true)
         
 //        // touchButtonを押したら、DBにinsert
 //        if sender == recordButton{

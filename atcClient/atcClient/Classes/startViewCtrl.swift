@@ -88,12 +88,12 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
         let buttonClickTime = buttonInfo[1]
         
         switch buttonType {
-        case "visit":
+        case "post":
+            messageText = "配達又は郵便のお届けです。\r迎えて下さい"
+            soundFileName = "postMusic"
+        default:
             messageText = "お客様が\rいらっしゃいました。\r迎えて下さい"
             soundFileName = "irasyai"
-        default:
-            messageText = "配達が\rいらっしゃいました。\r迎えて下さい"
-            soundFileName = "postMusic"
         }
         
         guard DataBase.insertMessage(timeInfoName: buttonClickTime, messageTextName: messageText) else {

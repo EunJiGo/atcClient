@@ -30,7 +30,7 @@ class DataBase {
         
         let databaseManager = DatabaseManager.shared
         
-        guard databaseManager.execute(query: createTableQuery) else {
+        guard databaseManager!.execute(query: createTableQuery) else {
             return
         }
     }
@@ -44,7 +44,7 @@ class DataBase {
 
         let databaseManager = DatabaseManager.shared
         
-        guard let statement = databaseManager.executeQuery(query: insertQuery) else {
+        guard let statement = databaseManager!.executeQuery(query: insertQuery) else {
             return false
         }
 
@@ -65,25 +65,23 @@ class DataBase {
 
     /// テーブルのすべてのデータ検索
     static func selectAll() -> [VisitInfo] {
-        var visitInfoArray: [VisitInfo] = []
+        
         
         let selectQuery = "SELECT * FROM \(table);"
         
         let databaseManager = DatabaseManager.shared
         
-        guard let resultSet = databaseManager.executeQuery(query: selectQuery) else {
+        guard let resultSet = databaseManager!.executeQuery(query: selectQuery) else {
             return []
         }
+        
+        var visitInfoArray: [VisitInfo] = []
 
         defer {
             sqlite3_finalize(resultSet)
         }
         
-        guard sqlite3_step(resultSet) == SQLITE_ROW else{
-            return []
-        }
-        
-        repeat {
+        while sqlite3_step(resultSet) == SQLITE_ROW {
             let id = Int(sqlite3_column_int(resultSet, 0))
             let timeInfo = String(cString: sqlite3_column_text(resultSet, 1))
             let messageText = String(cString: sqlite3_column_text(resultSet, 2))
@@ -94,8 +92,7 @@ class DataBase {
             visitInfo.messageText = messageText
 
             visitInfoArray.append(visitInfo)
-
-        } while sqlite3_step(resultSet) == SQLITE_ROW
+        }
 
         return visitInfoArray
     }
