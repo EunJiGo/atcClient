@@ -98,10 +98,17 @@ extension VisitRecordViewCtrl: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomTableViewCell
             
             let visitInfo = visitRecordsList[indexPath.row]
+            var visitReason = ""
             
             cell.idLabel.text = "  \(visitInfo.id!)"
             cell.idLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
-            cell.messageLabel.text = visitInfo.messageText
+            switch visitInfo.messageText {
+            case "post" :
+                visitReason = "郵便"
+            default :
+                visitReason = "来社"
+            }
+            cell.messageLabel.text = visitReason
             cell.messageLabel.widthAnchor.constraint(equalToConstant: 110).isActive = true
             cell.timeLabel.text = visitInfo.timeInfo
             

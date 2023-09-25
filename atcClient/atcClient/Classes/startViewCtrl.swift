@@ -77,7 +77,6 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
         isWait = false
         var messageText = ""
         var soundFileName = ""
-        var visitReason = ""
         
         let buttonInfo = message.components(separatedBy: ",")
         
@@ -90,17 +89,15 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
         
         switch buttonType {
         case "post":
-            visitReason = "郵便"
             messageText = "配達又は郵便のお届けです。\r迎えて下さい"
             soundFileName = "postMusic"
             
         default:
             messageText = "お客様が\rいらっしゃいました。\r迎えて下さい"
             soundFileName = "irasyai"
-            visitReason = "来社"
         }
 
-        guard DataBase.insertMessage(timeInfoName: buttonClickTime, messageTextName: messageText) else {
+        guard DataBase.insertMessage(timeInfoName: buttonClickTime, messageTextName: buttonType) else {
             return
         }
         
