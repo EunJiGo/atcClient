@@ -41,31 +41,30 @@ class DataBase {
             INSERT INTO \(table) (\(timeInfo), \(messageText))
             VALUES (?, ?);
         """
-
+        
         let databaseManager = DatabaseManager.shared
         
         guard let statement = databaseManager!.executeQuery(query: insertQuery) else {
             return false
         }
-
+        
         defer {
             sqlite3_finalize(statement)
         }
-
+        
         sqlite3_bind_text(statement, 1, (timeInfoName as NSString).utf8String, -1, nil)
         sqlite3_bind_text(statement, 2, (messageTextName as NSString).utf8String, -1, nil)
-
+        
         guard sqlite3_step(statement) == SQLITE_DONE else {
             print("Error executing insert query")
             return false
         }
-
+        
         return true
     }
-
+    
     /// テーブルのすべてのデータ検索
     static func selectAll() -> [VisitInfo] {
-        
         
         let selectQuery = "SELECT * FROM \(table);"
         
@@ -76,7 +75,7 @@ class DataBase {
         }
         
         var visitInfoArray: [VisitInfo] = []
-
+        
         defer {
             sqlite3_finalize(resultSet)
         }
@@ -85,15 +84,15 @@ class DataBase {
             let id = Int(sqlite3_column_int(resultSet, 0))
             let timeInfo = String(cString: sqlite3_column_text(resultSet, 1))
             let messageText = String(cString: sqlite3_column_text(resultSet, 2))
-
+            
             let visitInfo = VisitInfo()
             visitInfo.id = id
             visitInfo.timeInfo = timeInfo
             visitInfo.messageText = messageText
-
+            
             visitInfoArray.append(visitInfo)
         }
-
+        
         return visitInfoArray
     }
 }

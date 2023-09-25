@@ -74,8 +74,7 @@ class checkViewCtrl: UIViewController {
 //            let destinationVC = VisitRecordViewCtrl()
 //            self.navigationController?.pushViewController(destinationVC, animated: true)
 //        } else{
-//            DataBase.insertMessage(timeInfoName: "2023-09-17 11:00:00", messageTextName: "post")
+//            DataBase.insertMessage(timeInfoName: "2023-09-17 11:00:00", messageTextName: "郵便")
 //        }
-        
     }
 }

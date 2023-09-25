@@ -53,7 +53,6 @@ class DatabaseManager {
         return true
     }
 
-    
     /// データベースからデータを検索し、結果を返
     func executeQuery(query: String) -> OpaquePointer? {
         var statement: OpaquePointer? = nil
