@@ -83,9 +83,9 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
         guard buttonInfo.count >= 2 else {
             return
         }
-        
-        let buttonType = buttonInfo[0].replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: "(", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
-        let buttonClickTime = buttonInfo[1].replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: ")", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
+
+        let buttonType = buttonInfo[0]
+        let buttonClickTime = buttonInfo[1]
         
         switch buttonType {
         case "post":
