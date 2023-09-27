@@ -246,7 +246,8 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate, waitMessageDelegat
         } else {
             buttonType = "post"
         }
-        p2pConnectivity.manager.send(message: buttonType, clickTime: buttonClickTime)
+        
+        p2pConnectivity.manager.send(message: "\(buttonType, buttonClickTime)")
 
         let watView = waitMessageView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         watView.backgroundColor = UIColor.white

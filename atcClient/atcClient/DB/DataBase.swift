@@ -66,7 +66,7 @@ class DataBase {
     /// テーブルのすべてのデータ検索
     static func selectAll() -> [VisitInfo] {
         
-        let selectQuery = "SELECT * FROM \(table);"
+        let selectQuery = "SELECT * FROM \(table) ORDER BY id DESC;;"
         
         let databaseManager = DatabaseManager.shared
         

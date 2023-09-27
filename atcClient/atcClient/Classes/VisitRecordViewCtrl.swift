@@ -100,7 +100,7 @@ extension VisitRecordViewCtrl: UITableViewDataSource, UITableViewDelegate {
             let visitInfo = visitRecordsList[indexPath.row]
             var visitReason = ""
             
-            cell.idLabel.text = "  \(visitInfo.id!)"
+            cell.idLabel.text = "　\(indexPath.row + 1)"
             cell.idLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
             switch visitInfo.messageText {
             case "post" :

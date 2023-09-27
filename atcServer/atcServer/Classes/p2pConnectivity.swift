@@ -56,7 +56,7 @@ class p2pConnectivity: NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDel
     }
     
     @discardableResult
-    func send(message: String, clickTime: String) -> Bool {
+    func send(message: String) -> Bool {
         guard case .connected = state else { return false }
         
         let data = message.data(using: .utf8) ?? Data()

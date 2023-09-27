@@ -68,13 +68,5 @@ class checkViewCtrl: UIViewController {
 
         let destinationVC = VisitRecordViewCtrl()
         naviCtrl.pushViewController(destinationVC, animated: true)
-        
-//        // touchButtonを押したら、DBにinsert
-//        if sender == recordButton{
-//            let destinationVC = VisitRecordViewCtrl()
-//            self.navigationController?.pushViewController(destinationVC, animated: true)
-//        } else{
-//            DataBase.insertMessage(timeInfoName: "2023-09-17 11:00:00", messageTextName: "post")
-//        }
     }
 }
