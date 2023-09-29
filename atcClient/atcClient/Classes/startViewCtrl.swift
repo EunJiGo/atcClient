@@ -83,7 +83,7 @@ class startViewCtrl: UIViewController, AVAudioPlayerDelegate {
         guard buttonInfo.count >= 2 else {
             return
         }
-
+        
         let buttonType = buttonInfo[0]
         let buttonClickTime = buttonInfo[1]
         
