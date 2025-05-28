@@ -285,7 +285,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CD470A161FDBE300009F3A10 /* Build configuration list for PBXProject "atcClient" */;
+			buildConfigurationList = CD470A161FDBE300009F3A10 /* Build configuration list for PBXProject "	" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -640,7 +640,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CD470A161FDBE300009F3A10 /* Build configuration list for PBXProject "atcClient" */ = {
+		CD470A161FDBE300009F3A10 /* Build configuration list for PBXProject "	" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CD470A411FDBE300009F3A10 /* Debug */,
